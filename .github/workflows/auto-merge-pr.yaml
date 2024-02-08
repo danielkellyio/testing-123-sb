@@ -1,0 +1,32 @@
+# .github/workflows/auto-merge-pr.yml
+name: Merge Pull Requests
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+  pull_request_review:
+    types:
+      - submitted
+  check_suite:
+    types:
+      - completed
+  status: {}
+
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  merge:
+    name: Merge Pull Requests
+    uses: Vuejs-Certification/github-workflows/.github/workflows/auto-merge-pull-requests.yaml@v4
+    secrets: inherit
+

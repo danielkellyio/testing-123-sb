@@ -1,0 +1,14 @@
+# .github/workflows/tests.yml
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  upgrade:
+    name: Upgrade Dependencies
+    uses: Vuejs-Certification/github-workflows/.github/workflows/test-unit.yaml@v5
+

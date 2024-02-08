@@ -1,0 +1,18 @@
+# .github/workflows/upgrade-dependencies.yml
+name: Upgrade Yarn Dependencies
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  upgrade:
+    name: Upgrade Dependencies
+    uses: Vuejs-Certification/github-workflows/.github/workflows/upgrade-yarn-dependencies.yaml@v5
+    secrets: inherit
+
